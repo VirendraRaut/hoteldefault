@@ -1,0 +1,11 @@
+<h1>{{ hotelName }}</h1>
+
+<p>{{ msg }}</p>
+
+<span [hidden]="hideRooms" [innerText]="noOfRooms"></span>
+
+@if (rooms.availableRooms > 0) {
+  <div>Rooms Data</div>
+}
+
+<button (click)="toggleRooms()">Toggle Rooms</button>
