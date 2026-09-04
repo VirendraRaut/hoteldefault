@@ -2,7 +2,8 @@
 
 <p>{{ msg }}</p>
 
-<span [hidden]="hideRooms" [innerText]="noOfRooms"></span>
+<!-- <span [hidden]="hideRooms" [innerText]="noOfRooms"></span> -->
+<span>Total Rooms: {{ rooms.totalRooms }}</span>
 
 @if (rooms.availableRooms > 0) {
   <div>No Rooms Available, Sorry!</div>
