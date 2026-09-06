@@ -16,14 +16,16 @@
     <th>Room Type</th>
     <th>Price</th>
     <th>Room Amenities</th>
+    <th>checkInTime</th>
   </tr>
 
   <tr [ngClass]="e ? 'even' : 'odd'" *ngFor="let room of roomsDetails; let e = even">
     <td>{{ e ? '2' : '1' }}</td>
-    <td>{{ room.roomNumber }}</td>
+    <td>{{ room.roomNumber | uppercase }}</td>
     <td>{{ room.roomType }}</td>
     <td>{{ room.price }}</td>
     <td>{{ room.amenities }}</td>
+    <td>{{ room.checkInTime | date }}</td>
   </tr>
 </table>
 
