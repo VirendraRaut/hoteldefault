@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NgForOf, NgIf } from "@angular/common";
+import { NgForOf, NgIf, NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.html',
   styleUrl: './rooms.scss',
-  imports: [NgForOf, NgIf],
+  imports: [NgForOf, NgIf, NgClass],
 })
 export class Rooms {
   hotelName = 'Marvels';

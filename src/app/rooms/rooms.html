@@ -18,7 +18,7 @@
     <th>Room Amenities</th>
   </tr>
 
-  <tr *ngFor="let room of roomsDetails; let e = even">
+  <tr [ngClass]="e ? 'even' : 'odd'" *ngFor="let room of roomsDetails; let e = even">
     <td>{{ e ? '2' : '1' }}</td>
     <td>{{ room.roomNumber }}</td>
     <td>{{ room.roomType }}</td>
