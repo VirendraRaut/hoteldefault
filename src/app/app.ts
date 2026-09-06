@@ -1,11 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { Rooms } from './rooms/rooms';
-import { NgSwitch, NgSwitchDefault } from "@angular/common";
+import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Rooms, NgSwitch, NgSwitchDefault],
+  imports: [Rooms, NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
