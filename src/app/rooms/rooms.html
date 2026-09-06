@@ -9,4 +9,14 @@
   <div>No Rooms Available, Sorry!</div>
 }
 
+<table>
+  <tr>
+    <th>Room Number</th>
+    <th>Room Type</th>
+    <th>Price</th>
+    <th>Room Amenities</th>
+  </tr>
+  <tr *ngFor="let room; for: roomsDetails"></tr>
+</table>
+
 <button (click)="toggleRooms()">Toggle Rooms</button>
