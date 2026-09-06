@@ -1,2 +1,7 @@
 <h1>Captain America</h1>
-<app-rooms></app-rooms>
+<!-- <app-rooms></app-rooms> -->
+<div [ngSwitch]="role">
+  <div *ngSwitch="'User'">Welcom User!</div>
+  <div *ngSwitch="'Admin'"><app-rooms></app-rooms></div>
+  <div *ngSwitchDefault="''">Unauthorized Access</div>
+</div>
