@@ -23,7 +23,7 @@
     <td>{{ e ? '2' : '1' }}</td>
     <td>{{ room.roomNumber | uppercase }}</td>
     <td>{{ room.roomType }}</td>
-    <td>{{ room.price }}</td>
+    <td>{{ room.price | currency: 'INR' }}</td>
     <td>{{ room.amenities }}</td>
     <td>{{ room.checkInTime | date }}</td>
   </tr>
