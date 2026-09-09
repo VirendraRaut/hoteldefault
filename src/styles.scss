@@ -1,4 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import Bootstrap first */
+@use 'bootstrap/scss/bootstrap';
+
+/* Import ngx-bootstrap Datepicker */
+@use 'ngx-bootstrap/datepicker/bs-datepicker';
+
+/* Custom styles */
 
 .even {
   background-color: steelblue;
@@ -9,9 +15,3 @@
   background-color: tomato;
   color: black;
 }
-
-/* Import Bootstrap */
-@use 'bootstrap/scss/bootstrap';
-
-/* Import ngx-bootstrap Datepicker */
-@use 'ngx-bootstrap/datepicker/bs-datepicker';
