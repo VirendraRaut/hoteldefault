@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForOf, NgClass, DatePipe, UpperCasePipe, CurrencyPipe } from '@angular/common';
 
 @Component({
@@ -7,15 +7,14 @@ import { NgForOf, NgClass, DatePipe, UpperCasePipe, CurrencyPipe } from '@angula
   styleUrl: './rooms.scss',
   imports: [NgForOf, NgClass, DatePipe, UpperCasePipe, CurrencyPipe],
 })
-export class Rooms {
+export class Rooms implements OnInit {
   hotelName = 'Marvels';
-  msg = 'Welcome...';
-  noOfRooms = 'Number of Total Rooms: 20';
-  hideRooms = false;
 
-  toggleRooms() {
-    this.hideRooms = !this.hideRooms;
-  }
+  msg = 'Welcome...';
+
+  noOfRooms = 'Number of Total Rooms: 20';
+
+  hideRooms = false;
 
   rooms: RoomsInfo = {
     totalRooms: 20,
@@ -23,61 +22,77 @@ export class Rooms {
     bookedRooms: 5,
   };
 
-  roomsDetails: RoomsDetails[] = [
-    {
-      roomNumber: 'a1',
-      roomType: 'Deluxe Room',
-      image: 'assets/rooms/deluxe.jpg',
-      price: 2500,
-      amenities: 'WiFi, AC, TV, Breakfast',
-      checkInTime: new Date('2026-09-04T12:00:00'),
-      checkOutTime: new Date('2026-09-05T11:00:00'),
-    },
-    {
-      roomNumber: 'a2',
-      roomType: 'Standard Room',
-      image: 'assets/rooms/standard.jpg',
-      price: 1800,
-      amenities: 'WiFi, AC, TV',
-      checkInTime: new Date('2026-09-04T12:00:00'),
-      checkOutTime: new Date('2026-09-05T11:00:00'),
-    },
-    {
-      roomNumber: 'a3',
-      roomType: 'Executive Room',
-      image: 'assets/rooms/executive.jpg',
-      price: 3500,
-      amenities: 'WiFi, AC, TV, Mini Bar, Breakfast',
-      checkInTime: new Date('2026-09-04T12:00:00'),
-      checkOutTime: new Date('2026-09-05T11:00:00'),
-    },
-    {
-      roomNumber: 'a4',
-      roomType: 'Suite Room',
-      image: 'assets/rooms/suite.jpg',
-      price: 5000,
-      amenities: 'WiFi, AC, TV, Mini Bar, Breakfast, Sofa',
-      checkInTime: new Date('2026-09-04T12:00:00'),
-      checkOutTime: new Date('2026-09-05T11:00:00'),
-    },
-    {
-      roomNumber: 'a5',
-      roomType: 'Family Room',
-      image: 'assets/rooms/family.jpg',
-      price: 4200,
-      amenities: 'WiFi, AC, TV, Breakfast, Extra Bed',
-      checkInTime: new Date('2026-09-04T12:00:00'),
-      checkOutTime: new Date('2026-09-05T11:00:00'),
-    },
-  ];
+  roomsDetails: RoomsDetails[] = [];
+
+  // Method to show/hide rooms
+  toggleRooms(): void {
+    this.hideRooms = !this.hideRooms;
+  }
+
+  // Angular lifecycle method
+  ngOnInit(): void {
+    this.roomsDetails = [
+      {
+        roomNumber: 'a1',
+        roomType: 'Deluxe Room',
+        image: 'assets/rooms/deluxe.jpg',
+        price: 2500,
+        amenities: 'WiFi, AC, TV, Breakfast',
+        checkInTime: new Date('2026-09-04T12:00:00'),
+        checkOutTime: new Date('2026-09-05T11:00:00'),
+      },
+
+      {
+        roomNumber: 'a2',
+        roomType: 'Standard Room',
+        image: 'assets/rooms/standard.jpg',
+        price: 1800,
+        amenities: 'WiFi, AC, TV',
+        checkInTime: new Date('2026-09-04T12:00:00'),
+        checkOutTime: new Date('2026-09-05T11:00:00'),
+      },
+
+      {
+        roomNumber: 'a3',
+        roomType: 'Executive Room',
+        image: 'assets/rooms/executive.jpg',
+        price: 3500,
+        amenities: 'WiFi, AC, TV, Mini Bar, Breakfast',
+        checkInTime: new Date('2026-09-04T12:00:00'),
+        checkOutTime: new Date('2026-09-05T11:00:00'),
+      },
+
+      {
+        roomNumber: 'a4',
+        roomType: 'Suite Room',
+        image: 'assets/rooms/suite.jpg',
+        price: 5000,
+        amenities: 'WiFi, AC, TV, Mini Bar, Breakfast, Sofa',
+        checkInTime: new Date('2026-09-04T12:00:00'),
+        checkOutTime: new Date('2026-09-05T11:00:00'),
+      },
+
+      {
+        roomNumber: 'a5',
+        roomType: 'Family Room',
+        image: 'assets/rooms/family.jpg',
+        price: 4200,
+        amenities: 'WiFi, AC, TV, Breakfast, Extra Bed',
+        checkInTime: new Date('2026-09-04T12:00:00'),
+        checkOutTime: new Date('2026-09-05T11:00:00'),
+      },
+    ];
+  }
 }
 
+// Interface for room summary
 export interface RoomsInfo {
   totalRooms: number;
   availableRooms: number;
   bookedRooms: number;
 }
 
+// Interface for individual room
 export interface RoomsDetails {
   roomNumber: string;
   roomType: string;
